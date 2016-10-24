@@ -8,39 +8,56 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>vaadin-helloworld-webui</artifactId>
+
+	<prerequisites>
+		<maven>3</maven>
+	</prerequisites>
 	
 	<properties>
-		<vaadin.groupId>com.vaadin.dalvik</vaadin.groupId>
-		<vaadin.version>7.6.3</vaadin.version>
-		<vaadin.plugin.version>${vaadin.version}</vaadin.plugin.version>
+		<vaadin.version>7.7.0</vaadin.version>
+		<vaadin.plugin.version>7.7.0</vaadin.plugin.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<!-- If there are no local customisations, this can also be "fetch" or "cdn" -->
+		<vaadin.widgetset.mode>cdn</vaadin.widgetset.mode>
 	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.vaadin</groupId>
+				<artifactId>vaadin-bom</artifactId>
+				<version>${vaadin.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 			
 	<dependencies>
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
+			<version>3.0.1</version>
 			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
-			<groupId>${vaadin.groupId}</groupId>
+			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-server</artifactId>
-			<version>${vaadin.version}</version>
        	</dependency>
 		<dependency>
 			<artifactId>vaadin-shared</artifactId>
-			<groupId>${vaadin.groupId}</groupId>
-			<version>${vaadin.version}</version>
+			<groupId>com.vaadin</groupId>
 		</dependency>
 		<dependency>
-			<groupId>${vaadin.groupId}</groupId>
+			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-themes</artifactId>
-			<version>${vaadin.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>${vaadin.groupId}</groupId>
+			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-push</artifactId>
-			<version>${vaadin.version}</version>
 		</dependency>
 		
  		<!--
@@ -51,9 +68,8 @@
 		  explicit dependency.
 		-->
 		<dependency>
-			<groupId>${vaadin.groupId}</groupId>
+			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-client-compiled</artifactId>
-			<version>${vaadin.version}</version>
 		</dependency>
 		
 		<!-- 
@@ -131,23 +147,35 @@
 					<compileReport>false</compileReport>
 					<style>OBF</style>
 					<strict>true</strict>
-					<vaadin.theme>dwovaadin</vaadin.theme> 
 				</configuration>
 				<executions>
 					<execution>
 						<goals>
-<!-- Disabled for now
 							<goal>update-theme</goal>
 							<goal>update-widgetset</goal>
--->							
 							<goal>compile</goal>
 							<!-- Comment out compile-theme goal to use on-the-fly theme compilation -->
-							<!-- 
 							<goal>compile-theme</goal>
-							 -->
 						</goals>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>3.0.0</version>
+				<!-- Clean up also any pre-compiled themes -->
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>src/main/webapp/VAADIN/themes</directory>
+							<includes>
+								<include>**/styles.css</include>
+								<include>**/styles.scss.cache</include>
+							</includes>
+						</fileset>
+					</filesets>
+				</configuration>
 			</plugin>
 		</plugins>
 		<pluginManagement>

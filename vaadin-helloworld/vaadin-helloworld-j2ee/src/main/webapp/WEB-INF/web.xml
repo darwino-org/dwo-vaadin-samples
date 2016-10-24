@@ -2,7 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
-	version="3.0" metadata-complete="true">
+	version="3.0">
 	
 	<display-name>Vaadin Hello World</display-name>
 					
@@ -148,14 +148,14 @@
     	<dispatcher>FORWARD</dispatcher>
    </filter-mapping>
 
-	<servlet>
-	    <servlet-name>myservlet</servlet-name>
-	    <servlet-class>com.vaadin.server.VaadinServlet</servlet-class>
+<!-- 	<servlet> -->
+<!-- 	    <servlet-name>myservlet</servlet-name> -->
+<!-- 	    <servlet-class>com.vaadin.server.VaadinServlet</servlet-class> -->
 	
-	    <init-param>
-	    	<param-name>UI</param-name>
-	    	<param-value>com.darwino.demo.vaddin.hw.app.HelloWorldVaadinUI</param-value>
-	    </init-param>
+<!-- 	    <init-param> -->
+<!-- 	    	<param-name>UI</param-name> -->
+<!-- 	    	<param-value>com.darwino.demo.vaddin.hw.app.HelloWorldVaadinUI</param-value> -->
+<!-- 	    </init-param> -->
 	    	
 	    <!-- If not using the default widget set-->
 <!-- 	    
@@ -164,19 +164,19 @@
 	      <param-value>com.darwino.demo.MyAppWidgetset</param-value>
 	    </init-param>
  -->	    
-  </servlet>
+<!--   </servlet> -->
 	
-  <servlet-mapping>
-    <servlet-name>myservlet</servlet-name>
+<!--   <servlet-mapping> -->
+<!--     <servlet-name>myservlet</servlet-name> -->
 <!--     
     	<url-pattern>/*</url-pattern>
  -->    
-    	<url-pattern>/app/*</url-pattern>
-  </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>myservlet</servlet-name>
-        <url-pattern>/VAADIN/*</url-pattern>
-    </servlet-mapping>	  
+<!--     	<url-pattern>/app/*</url-pattern> -->
+<!--   </servlet-mapping> -->
+<!--     <servlet-mapping> -->
+<!--         <servlet-name>myservlet</servlet-name> -->
+<!--         <url-pattern>/VAADIN/*</url-pattern> -->
+<!--     </servlet-mapping>	   -->
 		
 	<!-- Welcome pages -->
 	<!-- Done at the resource service level
