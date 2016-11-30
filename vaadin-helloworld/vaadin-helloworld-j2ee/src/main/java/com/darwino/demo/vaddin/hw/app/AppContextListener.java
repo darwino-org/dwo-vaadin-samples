@@ -36,7 +36,7 @@ public class AppContextListener extends AbstractDarwinoContextListener {
  		// Define these to enable the background replication with another server 
 		syncExecutor = new BackgroundServletSynchronizationExecutor(sce.getServletContext());
 		syncExecutor.putPropertyValue("dwo-sync-database",AppDatabaseDef.DATABASE_NAME);
-		syncExecutor.start();
+		//syncExecutor.start();
 	}
 
 	@Override

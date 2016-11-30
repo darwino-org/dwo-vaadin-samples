@@ -12,12 +12,10 @@
 		<module>vaadin-helloworld-webui</module>
 		<module>vaadin-helloworld-mobile</module>
 		<module>vaadin-helloworld-j2ee</module>
-		<module>vaadin-helloworld-android-hybrid</module>
-		<module>vaadin-helloworld-robovm-hybrid</module>
   </modules>
 
 	<properties>
-		<DARWINO_VERSION>1.0.1-SNAPSHOT</DARWINO_VERSION>
+		<DARWINO_VERSION>1.5.0</DARWINO_VERSION>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>

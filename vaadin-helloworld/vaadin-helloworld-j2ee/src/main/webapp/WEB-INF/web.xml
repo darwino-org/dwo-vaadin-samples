@@ -85,6 +85,21 @@
 		<dispatcher>REQUEST</dispatcher>
     	<dispatcher>FORWARD</dispatcher>
    	</filter-mapping>
+   	
+	<servlet-mapping>
+		<servlet-name>FilesServlet</servlet-name>
+		<url-pattern>/*</url-pattern>
+		<!-- <url-pattern>/mobile/*</url-pattern> -->
+	</servlet-mapping>
+	<servlet>
+		<display-name>Default Files Servlet</display-name>
+		<servlet-name>FilesServlet</servlet-name>
+		<servlet-class>com.darwino.j2ee.servlet.resources.DarwinoAppResourcesServlet</servlet-class>
+		<init-param>
+			<param-name>welcome-file</param-name>
+			<param-value>/index.html</param-value>
+		</init-param>
+	</servlet>
 
 	<!--  Filter for creating the Darwino Application, Context and DB session -->
 	<filter>
